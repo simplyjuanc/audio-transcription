@@ -1,14 +1,5 @@
 @import url('./_variables.scss');
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
 .form {
   height: 40vh;
   width: 40vw;
@@ -37,9 +28,12 @@
     }
   }
 
+  &__file-input {
+    display: none;
+  }
+
   &__drop-prompt {
     text-align: center;
-    font-size: $spacing-xl;
     color: $secondary;
   }
 }
