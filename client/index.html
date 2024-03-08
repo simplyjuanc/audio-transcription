@@ -1,13 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <link rel="stylesheet" href="/src/style/index.scss" />
+    <script type="module" src="/src/main.ts" defer></script>
+    <title>Vite + TS</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app"></div>
+
+    <div class="container">
+      <form action="post" class="form">
+        <div class="form__drop-zone">
+          <p class="form__drop-prompt">Drop a file, or click to upload.</p>
+          <input type="file" class="form__file-input" accept="audio/*" />
+        </div>
+        <button class="form__submit" type="submit">Upload file</button>
+      </form>
+    </div>
   </body>
 </html>
