@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import fs from "fs";
-import OpenAI from "openai";
+import fs from 'fs';
+import OpenAI from 'openai';
 dotenv.config();
 
 const openAi = new OpenAI();
@@ -9,7 +9,7 @@ const openAi = new OpenAI();
 export async function transcribeVideo(filename: string) {
   const transcription = await openAi.audio.transcriptions.create({
     file: fs.createReadStream(filename),
-    model: "whisper-1",
+    model: 'whisper-1',
   });
 
   return transcription.text;
@@ -23,11 +23,11 @@ export async function generateCaption(transcript: string) {
         content: 'Use 20 tokens or less to write a caption for the video.'
       },
       {
-        role: "user",
+        role: 'user',
         content: `You are a helpful AI Prompt Engineer. Your task is to write a caption that will be used to post a video on social media. Your input  is the following transcript of said video. ${transcript}`
       },
     ],
-    model: "gpt-3.5-turbo",
+    model: 'gpt-3.5-turbo',
     max_tokens: 20,
   });
 
