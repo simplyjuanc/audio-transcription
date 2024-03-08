@@ -6,6 +6,7 @@ function endDrag(dropZone: HTMLElement) {
   dropZone.classList.add('form__drop-zone');
 }
 
+// TODO improve behaviour of filename rendering
 function previewAudioFile(file: File) {
   const title = document.createElement('p');
   title.textContent = file.name;
@@ -40,15 +41,18 @@ function handleFileSelect(file: File) {
   handleUpload(file);
 }
 
-function handleClick() {
-  const input = document.querySelector<HTMLInputElement>('.form__file-input');
-  if (!input) return;
-  input.click();
-}
+
 
 export function configureFileDrop() {
   const dropZone = document.querySelector<HTMLElement>('.form__drop-zone');
-  if (!dropZone) return;
+  const input = document.querySelector<HTMLInputElement>('.form__file-input');
+  if (!dropZone || !input) return;
+
+  input.addEventListener('click', () => {
+    const files = input.files;
+    if (!files) return;
+    handleFileSelect(files[0]);
+  });
 
   ['dragover', 'drop', 'dragend', 'dragleave'].forEach(event => {
     dropZone.addEventListener(event, (e) => e.preventDefault());
@@ -65,5 +69,5 @@ export function configureFileDrop() {
     endDrag(dropZone);
     handleDrop(e);
   });
-  dropZone.addEventListener('click', handleClick);
+  dropZone.addEventListener('click', () => input.click());
 }

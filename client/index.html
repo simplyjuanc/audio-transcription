@@ -18,12 +18,13 @@
         </ul>
       </nav>
       <main>
+        <h1>Transcribe your audio file</h1>
         <form action="post" class="form">
           <div class="form__drop-zone">
             <p class="form__drop-prompt">Drop a file, or click to upload.</p>
           </div>
-          <input class="form__file-input" type="file"></input>
-          <button class="form__submit" type="submit">Upload file</button>
+          <input class="form__file-input" type="file" accept="audio/*"></input>
+          <button class="btn-primary form__submit" type="submit">Transcribe</button>
         </form>
         <div class="transcription"></div>
       </main>
