@@ -10,12 +10,23 @@
   </head>
   <body>
     <div class="container">
-      <form action="post" class="form">
-        <div class="form__drop-zone">
-          <p class="form__drop-prompt">Drop a file, or click to upload.</p>
-        </div>
-        <button class="form__submit" type="submit">Upload file</button>
-      </form>
+      <nav>
+        <ul class="nav">
+          <li class="nav__item">Nav 1</li>
+          <li class="nav__item">Nav 2</li>
+          <li class="nav__item">Nav 3</li>
+        </ul>
+      </nav>
+      <main>
+        <form action="post" class="form">
+          <div class="form__drop-zone">
+            <p class="form__drop-prompt">Drop a file, or click to upload.</p>
+          </div>
+          <input class="form__file-input" type="file"></input>
+          <button class="form__submit" type="submit">Upload file</button>
+        </form>
+        <div class="transcription"></div>
+      </main>
     </div>
   </body>
 </html>

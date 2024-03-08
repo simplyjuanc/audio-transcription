@@ -1,17 +1,16 @@
 import { postFile } from '../services/apiClient';
 
+
 function endDrag(dropZone: HTMLElement) {
   dropZone.classList.remove('form__drop-zone--active');
   dropZone.classList.add('form__drop-zone');
 }
-
 
 function previewAudioFile(file: File) {
   const title = document.createElement('p');
   title.textContent = file.name;
   document.querySelector('.form__drop-zone')?.appendChild(title);
 }
-
 
 function handleUpload(file: File) {
   const submitBtn = document.querySelector<HTMLButtonElement>('.form__submit');
@@ -23,19 +22,28 @@ function handleUpload(file: File) {
   });
 }
 
-
 function handleDrop(e: DragEvent) {
   try {
     const file = e.dataTransfer?.files[0];
     if (!file) return;
-    if (!file.type.startsWith('audio') || file.size > 2e7) {
-      throw new Error('File is not of right type or file size is too large');
-    }
-    previewAudioFile(file);
-    handleUpload(file);
+    handleFileSelect(file);
   } catch (error) {
     console.error(error);
   }
+}
+
+function handleFileSelect(file: File) {
+  if (!file.type.startsWith('audio') || file.size > 2e7) {
+    throw new Error('File is not of right type or file size is too large');
+  }
+  previewAudioFile(file);
+  handleUpload(file);
+}
+
+function handleClick() {
+  const input = document.querySelector<HTMLInputElement>('.form__file-input');
+  if (!input) return;
+  input.click();
 }
 
 export function configureFileDrop() {
@@ -57,4 +65,5 @@ export function configureFileDrop() {
     endDrag(dropZone);
     handleDrop(e);
   });
+  dropZone.addEventListener('click', handleClick);
 }
