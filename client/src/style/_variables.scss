@@ -1,3 +1,21 @@
-:root {
-  --bg-primary: red;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant&display=swap');
+@import url('https://db.onlinewebfonts.com/c/29800a9e7d146302b8ed9ad2f848db63?family=Druk+Wide+Web+Bold+Regular');
+
+// Colours
+$primary: #4801ff;
+$secondary: #f2f2f2;
+$tertiary: #8f63ff;
+$accent: #000000;
+$accent-100: #1a1a1a;
+$accent-200: #1e1e1e;
+
+$font-family: 'Cormorant', sans-serif;
+$font-family-title: 'Druk Wide Web Bold Regular', sans-serif;
+
+$spacing-md: 16px;
+$spacing-xs: calc($spacing-md * 0.5);
+$spacing-sm: calc($spacing-md * 0.75);
+$spacing-lg: calc($spacing-md * 1.2);
+$spacing-xl: calc($spacing-md * 1.5);
+$spacing-2xl: calc($spacing-md * 2);
+//Sizes

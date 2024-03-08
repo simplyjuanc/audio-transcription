@@ -1,2 +1,11 @@
-@import url('./_reset.scss');
-@import url('./fileUpload.scss');
+@import './_variables.scss';
+@import './_reset.scss';
+@import './fileUpload.scss';
+
+:root {
+  font-family: $font-family;
+}
+
+body {
+  background-color: $primary;
+}
