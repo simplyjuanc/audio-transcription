@@ -4,6 +4,7 @@ const BASE_URL = 'http://localhost:3000';
 
 export async function postFile(file: File) {
   try {
+    console.log({ file });
     const formData = new FormData();
     formData.append('audio', file);
     const res = await fetch(`${BASE_URL}/api/transcribe`, {
@@ -14,7 +15,8 @@ export async function postFile(file: File) {
     if (!res.ok) {
       throw new Error(res.status.toString());
     }
-    return res.status;
+    const data: Record<'transcript', string> = await res.json();
+    return data;
   } catch (error) {
     console.log(error);
     return null;

@@ -6,28 +6,6 @@ function endDrag(dropZone: HTMLElement) {
   dropZone.classList.add('form__drop-zone');
 }
 
-// TODO improve behaviour of filename rendering
-function previewAudioFile(file: File) {
-  const title = document.createElement('p');
-  title.textContent = (file.name.length > 20) ?
-    file.name.slice(0, 17) + '...' :
-    file.name;
-  title.classList.add('form__file-title');
-  const dropZone = document.querySelector('.form__drop-zone');
-  if (!dropZone) return;
-  dropZone.innerHTML = '';
-  dropZone.appendChild(title);
-}
-
-function handleUpload(file: File) {
-  const submitBtn = document.querySelector<HTMLButtonElement>('.form__submit');
-  if (!submitBtn) return;
-  submitBtn.addEventListener('submit', (e) => {
-    e.preventDefault();
-    postFile(file);
-    console.log('File uploaded!');
-  });
-}
 
 function handleDrop(e: DragEvent) {
   try {
@@ -47,6 +25,35 @@ function handleFileSelect(file: File) {
   handleUpload(file);
 }
 
+
+// TODO improve behaviour of filename rendering
+function previewAudioFile(file: File) {
+  const title = document.createElement('p');
+  title.textContent = (file.name.length > 20) ?
+    file.name.slice(0, 17) + '...' :
+    file.name;
+  title.classList.add('form__file-title');
+  const dropZone = document.querySelector('.form__drop-zone');
+  if (!dropZone) return;
+  dropZone.innerHTML = '';
+  dropZone.appendChild(title);
+}
+
+function handleUpload(file: File) {
+  const form = document.querySelector<HTMLButtonElement>('.form');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      const res = await postFile(file);
+      if (!res) throw new Error('Error - transcript not returned');
+      window.app.transcription.updateTranscription(res.transcript);
+    } catch (error) {
+      alert(error);
+    }
+  });
+}
 
 
 export function configureFileDrop() {

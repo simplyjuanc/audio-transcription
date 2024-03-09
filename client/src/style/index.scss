@@ -3,6 +3,7 @@
 @import './ui.scss';
 @import './commons.scss';
 @import './fileUpload.scss';
+@import './transcription.scss';
 
 :root {
   font-family: $font-family;
@@ -12,7 +13,14 @@ h1,
 h2,
 h3 {
   font-family: $font-family-title;
+}
+
+h1 {
   font-size: $spacing-xl;
+}
+
+h2 {
+  font-size: $spacing-lg;
 }
 
 body {
