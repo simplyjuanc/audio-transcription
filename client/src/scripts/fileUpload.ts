@@ -9,8 +9,14 @@ function endDrag(dropZone: HTMLElement) {
 // TODO improve behaviour of filename rendering
 function previewAudioFile(file: File) {
   const title = document.createElement('p');
-  title.textContent = file.name;
-  document.querySelector('.form__drop-zone')?.appendChild(title);
+  title.textContent = (file.name.length > 20) ?
+    file.name.slice(0, 17) + '...' :
+    file.name;
+  title.classList.add('form__file-title');
+  const dropZone = document.querySelector('.form__drop-zone');
+  if (!dropZone) return;
+  dropZone.innerHTML = '';
+  dropZone.appendChild(title);
 }
 
 function handleUpload(file: File) {

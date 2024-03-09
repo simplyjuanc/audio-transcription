@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraff dist && npx tsc",
-    "predev": "npm run build",
-    "dev": "nodemon dist/app.js"
+    "dev": "nodemon src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +26,6 @@
     "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.57.0",
     "nodemon": "^3.1.0",
-    "rimraff": "^0.0.1-security",
     "tsc-node": "^0.0.3",
     "typescript": "^5.3.3"
   }

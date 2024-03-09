@@ -26,6 +26,11 @@
       border: 4px solid $secondary;
     }
   }
+  &__file-title {
+    word-break: break-all;
+    text-align: center;
+    color: $secondary;
+  }
 
   &__file-input {
     display: none;

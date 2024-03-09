@@ -1,12 +1,10 @@
 // @import './variables';
 
 .btn {
-  border: none;
   color: $secondary;
   cursor: pointer;
   border: $primary solid 2px;
   border-radius: $spacing-xs;
-  padding: $spacing-2xs $spacing-lg;
   transition: all 200ms ease-in-out;
   max-width: 15vw;
 
