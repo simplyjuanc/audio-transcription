@@ -1,17 +1,17 @@
 import { configureFileDrop } from './scripts/fileUpload';
 import { configureTranscriptionBox } from './scripts/transcription';
-import { TranscriptionStore } from './store/Transcription';
+import TranscriptionStore from './store/Transcription';
 
 declare global {
   interface Window {
     app: {
-      transcription: typeof TranscriptionStore
+      store: typeof TranscriptionStore
     }
   }
 }
 
 
-window.app = { transcription: TranscriptionStore };
+window.app = { store: TranscriptionStore };
 
 document.addEventListener('DOMContentLoaded', () => {
   configureFileDrop();

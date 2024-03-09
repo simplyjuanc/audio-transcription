@@ -48,7 +48,7 @@ function handleUpload(file: File) {
     try {
       const res = await postFile(file);
       if (!res) throw new Error('Error - transcript not returned');
-      window.app.transcription.updateTranscription(res.transcript);
+      window.app.store.transcription = res.transcript;
     } catch (error) {
       alert(error);
     }
