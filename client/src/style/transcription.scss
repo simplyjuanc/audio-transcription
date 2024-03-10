@@ -13,10 +13,10 @@
   &__box {
     width: 100%;
     min-height: 60%;
+    max-height: 60vh;
     background-color: $secondary;
     border-radius: $spacing-md;
     padding: $spacing-xs $spacing-md;
-    max-height: 80%;
     overflow: auto;
     overscroll-behavior: auto;
   }

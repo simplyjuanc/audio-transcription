@@ -9,15 +9,15 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div class="container">
-      <nav>
-        <ul class="nav">
-          <li class="nav__item">Nav 1</li>
-          <li class="nav__item">Nav 2</li>
-          <li class="nav__item">Nav 3</li>
-        </ul>
-      </nav>
-      <main>
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item--selected"><a href="/">Home</a></li>
+        <li class="nav__item"><a href="/transcription">Transcription</a></li>
+        <li class="nav__item"><a href="/markdown">Markdown</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="container">
         <h1>Transcribe your audio file</h1>
         <form action="post" class="form">
           <div class="form__drop-zone">
@@ -26,16 +26,18 @@
           <input class="form__file-input" type="file" accept="audio/*"></input>
           <button class="btn-primary form__submit" type="submit">Transcribe</button>
         </form>
+      </div>
+      <div class="container">
         <div class="transcription">
           <div class="transcription__header">
             <h2>Transcribed text</h2>
-            <button class='btn-primary transcription__copy' type="button">Copy text</button>
+          <button class='btn-primary transcription__copy' type="button">Copy text</button>
           </div>
-            <div class="transcription__box">
-              <p class="transcription__text">Your transcribed text will be here...</p>
+          <div class="transcription__box">
+            <p class="transcription__text">Your transcribed text will be here...</p>
           </div>
         </div>
-      </main>
-    </div>
+      </div>  
+    </main>
   </body>
 </html>

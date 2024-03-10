@@ -27,5 +27,9 @@ export function configureTranscriptionBox() {
     const text = window.app.store.transcription;
     if (!text) return;
     await navigator.clipboard.writeText(text);
+    copyBtn.textContent = 'Text copied!';
+    setTimeout(() => {
+      copyBtn.textContent = 'Copy text';
+    }, 3000);
   });
 }

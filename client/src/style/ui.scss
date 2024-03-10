@@ -6,6 +6,7 @@
   border-radius: $spacing-xs;
   transition: all 200ms ease-in-out;
   max-width: 15vw;
+  padding: 0 $spacing-2xs;
 
   &:hover {
     color: $secondary;
