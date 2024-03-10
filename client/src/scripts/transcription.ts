@@ -1,12 +1,6 @@
 import TranscriptionStore from '../store/Transcription';
 
 
-/* 
-Check if there's a transcript in store
-if there isn't, do nothing
-If there is, grab the text response and render it within the box
-
-*/
 function renderTranscription(container: HTMLElement, transcript: string) {
   container.innerHTML = '';
   const p = document.createElement('p');
@@ -15,13 +9,23 @@ function renderTranscription(container: HTMLElement, transcript: string) {
   container.appendChild(p);
 }
 
+
 export function configureTranscriptionBox() {
   const transcriptContainer = document.querySelector<HTMLElement>('.transcription__box');
-  if (!transcriptContainer) return;
+  const transcript = document.querySelector<HTMLParagraphElement>('.transcription__text');
+  const copyBtn = document.querySelector<HTMLButtonElement>('.transcription__copy');
+  if (!transcriptContainer || !transcript || !copyBtn) return;
 
   window.addEventListener('transcriptchange', () => {
-    const transcript = TranscriptionStore.transcription;
-    if (transcript === '') return;
-    renderTranscription(transcriptContainer, transcript);
+    const newTranscript = TranscriptionStore.transcription;
+    if (newTranscript === '') return;
+    renderTranscription(transcriptContainer, newTranscript);
+  });
+
+  // addCopyEventListener(transcript, copyBtn);
+  copyBtn.addEventListener('click', async () => {
+    const text = window.app.store.transcription;
+    if (!text) return;
+    await navigator.clipboard.writeText(text);
   });
 }

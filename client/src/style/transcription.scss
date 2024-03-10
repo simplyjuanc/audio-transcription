@@ -4,14 +4,15 @@
 
   &__box {
     width: 100%;
-    height: 60%;
+    min-height: 60%;
     background-color: $secondary;
     border-radius: $spacing-md;
     padding: $spacing-xs $spacing-md;
   }
 
   &__text {
-    font-size: $spacing-sm;
+    font-size: $spacing-xs;
     color: $accent;
+    font-style: italic;
   }
 }

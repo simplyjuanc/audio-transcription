@@ -61,7 +61,7 @@ export function configureFileDrop() {
   const input = document.querySelector<HTMLInputElement>('.form__file-input');
   if (!dropZone || !input) return;
 
-  input.addEventListener('click', () => {
+  input.addEventListener('change', () => {
     const files = input.files;
     if (!files) return;
     handleFileSelect(files[0]);
