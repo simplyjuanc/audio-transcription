@@ -30,9 +30,9 @@ function handleFileSelect(file: File) {
 function previewAudioFile(file: File) {
   const title = document.createElement('p');
   title.textContent = (file.name.length > 20) ?
-    file.name.slice(0, 17) + '...' :
+    file.name.slice(0, 20) + '...' :
     file.name;
-  title.classList.add('form__file-title');
+  title.classList.add('form__file-title--active');
   const dropZone = document.querySelector('.form__drop-zone');
   if (!dropZone) return;
   dropZone.innerHTML = '';

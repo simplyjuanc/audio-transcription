@@ -1,20 +1,27 @@
 // @import './variables';
 
 .btn {
-  color: $secondary;
   cursor: pointer;
   border: $primary solid 2px;
   border-radius: $spacing-xs;
   transition: all 200ms ease-in-out;
   max-width: 15vw;
 
+  &:hover {
+    color: $secondary;
+    background-color: $primary;
+    border: $secondary solid 2px;
+  }
+
   &-primary {
     @extend .btn;
+    color: $secondary;
     background-color: $tertiary;
+  }
 
-    &:hover {
-      background-color: $primary;
-      border: $secondary solid 2px;
-    }
+  &-secondary {
+    @extend .btn;
+    background-color: $secondary;
+    color: $accent;
   }
 }

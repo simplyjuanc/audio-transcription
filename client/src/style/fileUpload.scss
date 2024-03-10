@@ -15,8 +15,10 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    height: 50%;
-    width: 50%;
+    min-height: 4rem;
+    min-width: 4rem;
+    height: 30vmin;
+    width: 30vmin;
     border-radius: 2rem;
     border: 4px dashed $secondary;
 
@@ -30,6 +32,11 @@
     word-break: break-all;
     text-align: center;
     color: $secondary;
+
+    &--active {
+      @extend .form__file-title;
+      font-size: $spacing-sm;
+    }
   }
 
   &__file-input {
