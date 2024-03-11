@@ -1,5 +1,6 @@
-import { configureFileDrop } from './scripts/fileUpload';
-import { configureTranscriptionBox } from './scripts/transcription';
+import { configureFileDrop as setupFileDrop } from './scripts/fileUpload';
+import { configureTranscriptionBox as setupTranscriptionBox } from './scripts/transcription';
+import Router from './services/router';
 import TranscriptionStore from './store/Transcription';
 
 declare global {
@@ -10,12 +11,17 @@ declare global {
   }
 }
 
+window.app = {
+  store: TranscriptionStore,
+};
 
-window.app = { store: TranscriptionStore };
 
 document.addEventListener('DOMContentLoaded', () => {
-  configureFileDrop();
-  configureTranscriptionBox();
+  Router.init();
+
+  setupFileDrop();
+  setupTranscriptionBox();
+
 });
 
 
