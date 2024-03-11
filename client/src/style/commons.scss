@@ -1,10 +1,12 @@
 nav {
   min-height: 100vh;
   width: 25vw;
-  background-color: $tertiary;
+  background-color: lighten($tertiary, 10%);
   border-top-right-radius: $spacing-xl;
   border-bottom-right-radius: $spacing-xl;
   position: fixed;
+  animation-duration: 2s;
+  // background-color: linear-gradient(to right, $primary, $tertiary);
 }
 
 .nav {
@@ -15,36 +17,35 @@ nav {
     padding-top: $spacing-2xl;
     gap: $spacing-2xl;
     list-style: none;
-    animation-duration: 2s;
   }
 
   &__item {
     cursor: pointer;
     border: $secondary solid 2px;
+    box-shadow: -$spacing-2xs $spacing-2xs $primary;
     color: $secondary;
     font-family: $font-family;
     font-size: $spacing-sm;
-    padding: $spacing-sm $spacing-xs;
+    padding: $spacing-md;
     height: $spacing-2xl;
     display: flex;
     align-items: center;
     border-radius: $spacing-xs;
-    // margin: 0 $spacing-xl;
+    transition: all 0.3s ease;
+    background-color: transparent;
 
     a {
       text-decoration: none;
       color: inherit;
     }
 
-    &:hover {
-      color: $accent;
-      font-size: $spacing-md;
-    }
-
+    &:hover,
     &--selected {
       @extend .nav__item;
       color: $accent;
-      font-weight: 900;
+      background-color: lighten($primary, 20%);
+      border-color: $accent;
+      font-size: $spacing-md;
     }
   }
 }
