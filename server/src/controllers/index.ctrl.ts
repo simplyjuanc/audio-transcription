@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 // import { ProcessedFile } from '../@types';
 // import { renderVoiceNoteMd } from '../services/renderMarkdown';
 // import { transcribeVideo } from '../services/OpenAiClient';
-
+// import { DB } from '../models/db';
 
 
 export async function postTranscribe(req: Request, res: Response) {

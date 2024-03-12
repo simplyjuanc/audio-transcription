@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { render } from 'mustache';
-import { ProcessedFile } from '../@types';
-import { stringifyDate } from '../helpers/stringifyDate';
+import { VoiceNote } from '../@types';
+import { stringifyDate } from './stringifyDate';
 
 
 const templatePath = path.join(process.cwd(), 'templates');
@@ -12,7 +12,7 @@ if (!fs.existsSync(templatePath)) {
 const template = fs.readFileSync(path.join(templatePath, 'fleeting-note.md')).toString();
 
 
-export function renderVoiceNoteMd(file: ProcessedFile, date?: Date) {
+export function renderVoiceNoteMd(file: VoiceNote, date?: Date) {
   const mdDate = date ? stringifyDate(date) : stringifyDate(new Date());
   const fields = {
     date: mdDate,

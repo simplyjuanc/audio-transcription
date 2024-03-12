@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import multer from './services/multer';
+import multer from './utils/multer';
 import { getMarkdown, postMarkdown, postTranscribe } from './controllers/index.ctrl';
 // import { postCaption, postThumbnail, postTranscribe } from './controllers/index.ctrl';
 

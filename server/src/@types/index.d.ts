@@ -1,13 +1,22 @@
 
-export interface ProcessedFile extends Express.Multer.File {
-  date: Date
-  transcript: string
+
+
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      OPENAI_API_KEY: string
+      DB_URL: string
+    }
+  }
 }
 
-//& Pick<Express.Multer.File, 'buffer' | 'path' | 'filename' | 'originalname' | 'size' | 'destination'>
 
 
+export type VoiceNote = {
+  transcript?: string
+  markdown?: string
+} & Pick<
+  Express.Multer.File,
+  'buffer' | 'path' | 'filename' | 'originalname' | 'size' | 'destination' | 'mimetype'
+>
 
-interface PersistentFile extends ProcessedFile {
-  markdown: string
-}
