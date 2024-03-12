@@ -1,12 +1,12 @@
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3000/api/v1';
 
 
 export async function postFile(file: File) {
   try {
     const formData = new FormData();
     formData.append('audio', file);
-    const res = await fetch(`${BASE_URL}/api/transcribe`, {
+    const res = await fetch(`${BASE_URL}/transcribe`, {
       method: 'POST',
       body: formData,
     });
